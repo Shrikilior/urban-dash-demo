@@ -1,0 +1,20 @@
+<h3>רשימת שכבות</h3>
+<mat-dialog-content>
+<div *ngIf="additionalLayers" class="dialog-layer-list">
+    <div *ngFor="let name of pageListNames">
+        <div class="layer-row"> 
+            <div class="text"><span> {{ additionalLayers[name].caption }} </span></div>
+            <div class="icon"> <span [ngClass]="additionalLayers[name].layerIcon.css">  </span> </div>
+            <mat-icon (click)="markEntry(name)" [class.hidden]="additionalLayers[name].isAdded">check_box_outline_blank</mat-icon> 
+            <mat-icon (click)="unMarkEntry(name)" [class.hidden]="!additionalLayers[name].isAdded">check_box</mat-icon>
+        </div>
+    </div>
+</div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <!-- <button mat-button mat-dialog-close>Cancel</button> -->
+    <div (click)="addToList()" class="btn" mat-button mat-dialog-close>הוספה</div>
+    <div (click)="nextPage('up')" class="btn nxt" mat-button >הבא</div>
+    <span>{{currentPage}}/{{totalPages}}</span>
+    <div (click)="nextPage('down')" class="btn nxt" mat-button >הקודם</div>
+</mat-dialog-actions>

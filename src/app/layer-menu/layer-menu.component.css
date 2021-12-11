@@ -1,0 +1,71 @@
+.layer-list {
+    float: right;
+    text-align: right;
+    /* border: 3px solid blue; */
+    width: 100%;
+}
+
+.layer-row {
+    margin: 5px;
+    /* border-radius: 3px; */
+    /* background-color: blanchedalmond; */
+    height: 40px;
+    border-bottom: 1px solid rgb(102, 102, 102);
+}
+
+.hidden {
+    visibility: hidden;
+    float: left;
+}
+
+span {
+    /* Added to the span so the span size will get the css size defined in the layers css */
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.icon {
+    display: inline-block;
+    /* border: 3px solid blue; */
+    height: 25px;
+    margin-top: 8px;
+}
+
+/* text div */
+.text {
+    display: inline-block;
+    /* border: 3px solid blue; */
+    margin-bottom: 20px;
+    margin-left: 5px;
+    height: 25px;
+    vertical-align: middle; 
+}
+
+mat-icon {
+    margin-left: 5px;
+    margin-right: 3px;
+    cursor: pointer;
+    /* border: 1px solid red; */
+}
+
+mat-icon:hover {
+    background-color: rgba(0, 0, 0, 0.055);
+}
+
+h2 {
+    text-align: right;
+    padding: 10px;
+}
+
+.add-layer {
+    padding: 10px;
+    margin: 5px;
+    border: 2px solid black;
+    float:left;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.add-layer:hover {
+    background-color: rgba(0, 0, 0, 0.055);
+}

@@ -6,8 +6,76 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  
+  <!-- Loading govmap -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://www.govmap.gov.il/govmap/api/govmap.api.js"></script>
+  <!-- Example govmap query -->
+  <!-- <script type="text/javascript">
+      function showExample(){
+          var params = {
+              LayerName: 'SUB_GUSH_ALL',
+              Point: {x: 198172, y: 748800},
+              Radius:1000
+          };
+          var params_b = {
+            LayerName: 'bus_stops',
+            Point: {x: 195347, y: 715605},
+            Radius:1000
+          }
+        govmap.getLayerData(params).then(function(response){
+            console.log(response);
+        });
+      }
+      showExample();
+  </script> -->
+
+  <script type="text/javascript">
+    $(document).ready(function ()
+    {
+        govmap.createMap('map', 
+            {
+                token: '5a4b8472-b95b-4687-8179-0ccb621c7990',
+                layers: ["GASSTATIONS","PARCEL_HOKS", "KSHTANN_ASSETS", "bus_stops", "PARCEL_ALL"],
+                showXY: true,
+                identifyOnClick: true,
+                isEmbeddedToggle: false,
+                background: 3,
+                layersMode: 1,
+                zoomButtons:false
+           });
+
+    });  
+    function showExample(){
+        var params = {
+            layerName: '2756',
+        };
+        govmap.getLayerEntities(params).then(function(response){
+            console.log(response);
+        });  
+    }
+  </script>
+
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 </head>
 <body>
   <app-root></app-root>
+
+  <!-- coverter example -->
+
+  <script type="text/javascript" src="./assets/js-itm.js"></script>
+  <script>
+    // alert(JSITM.itmRef2gpsRef("222631"));
+    // alert(JSITM.gpsRef2itmRef("31.77805 35.23559"));
+  </script>
+
+  <!-- from govmap examples -->
+  <div id="map" style="width:600px;height:600px" hidden></div>
+  <button hidden onClick="showExample()">Show Example</button>
+
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChXsTcg0PU6U3hNBzWNO33ytEhHvGLYZA&v=weekly&language=he&region=IL"
+  async ></script>
 </body>
 </html>

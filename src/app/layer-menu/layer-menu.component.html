@@ -1,0 +1,15 @@
+<div>
+    <div (click)="openLayerSelectDialog()" class="add-layer">שכבות נוספות</div>
+    <h2>שכבות</h2>
+</div>
+<div *ngIf="listLoadedFlag" class="layer-list">
+    <div *ngFor="let name of menuLayerNames">
+        <div class="layer-row"> 
+            <div class="text"><span> {{ additionalLayers[name].caption }} </span></div>
+            <div class="icon"> <span [ngClass]="additionalLayers[name].layerIcon.css">  </span> </div>
+            <mat-icon [class.hidden]="additionalLayers[name].isActive" (click)="showLayer(name)">check_box_outline_blank</mat-icon> 
+            <mat-icon [class.hidden]="!additionalLayers[name].isActive" (click)="hideLayer(name)">check_box</mat-icon>
+        </div>
+    </div>
+</div>
+    
